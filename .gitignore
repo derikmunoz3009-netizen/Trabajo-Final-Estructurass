@@ -1,0 +1,6 @@
+cmake-build-*/
+.idea/
+*.exe
+*.o
+*.obj
+persona2_demo
