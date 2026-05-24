@@ -10,4 +10,7 @@ add_executable(Persona2_Pistas_Testigos
         Pista.cpp
         Testigo.cpp
         GestorPistasTestigos.cpp
+        Ciudad.cpp
+        Nodo.cpp
+        main.cpp
 )
