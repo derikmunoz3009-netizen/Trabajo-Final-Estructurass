@@ -5,7 +5,7 @@
 Nodo::Nodo(char contenido) {
     this->contenido = contenido;  // Asigna el contenido que recibe
     this->visitado = false;       // Inicialmente no está visitado
-    
+
     // Los punteros comienzan en NULL (no apuntan a nada)
     this->arriba = NULL;
     this->abajo = NULL;
@@ -46,7 +46,7 @@ Nodo* Nodo::getIzquierda() {
 }
 
 // Retorna el puntero del nodo que está a la DERECHA de este
-Nodo* Nodo::getDerechaC() {
+Nodo* Nodo::getDerecha() {
     return this->derecha;
 }
 
