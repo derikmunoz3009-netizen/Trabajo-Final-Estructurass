@@ -1,20 +1,12 @@
 #include "ABBPuntajes.h"   // Incluye el header de esta clase
-#include <iostream>        // Para cout (imprimir en pantalla)
+#include <iostream>
 
 using namespace std;
 
-// ============================================================
-// CONSTRUCTOR
-// Crea un árbol vacío (la raíz apunta a nullptr)
-// ============================================================
 ABBPuntajes::ABBPuntajes() {
     raiz = nullptr;   // Árbol vacío al inicio
 }
 
-// ============================================================
-// DESTRUCTOR
-// Libera toda la memoria cuando el objeto es destruido
-// ============================================================
 ABBPuntajes::~ABBPuntajes() {
     liberarMemoria(raiz);   // Llama al metodo recursivo desde la raíz
 }
@@ -47,10 +39,10 @@ NodoABB* ABBPuntajes::insertarRec(NodoABB* nodo, string nombre, int puntaje) {
         // Solo actualiza si el nuevo puntaje es MENOR (mejor)
         if (puntaje < nodo->puntaje) {
             nodo->puntaje = puntaje;   // Actualiza con el mejor puntaje
-            cout << "📊 Puntaje actualizado para " << nombre << ": " << puntaje << endl;
+            cout << "Puntaje actualizado para " << nombre << ": " << puntaje << endl;
         } else {
             // El puntaje anterior era mejor, no se cambia
-            cout << "📊 Se conserva el puntaje anterior de " << nombre << ": " << nodo->puntaje << endl;
+            cout << "Se conserva el puntaje anterior de " << nombre << ": " << nodo->puntaje << endl;
         }
         return nodo;   // Devuelve el nodo sin más cambios
     }
@@ -74,12 +66,12 @@ NodoABB* ABBPuntajes::insertarRec(NodoABB* nodo, string nombre, int puntaje) {
 void ABBPuntajes::insertarPuntaje(string nombre, int puntaje) {
     // Llama a la función recursiva empezando desde la raíz
     raiz = insertarRec(raiz, nombre, puntaje);
-    cout << "✅ Puntaje de " << nombre << " guardado: " << puntaje << " movimientos." << endl;
+    cout << "Puntaje de " << nombre << " guardado: " << puntaje << " movimientos." << endl;
 }
 
 // ============================================================
 // buscarNombreRec (privado, recursivo)
-// Busca un detective por nombre (recorre todo el árbol)
+// Busca un detective por nombre (recorre todo el rbol)
 // Nota: el árbol está ordenado por puntaje, no por nombre,
 // por eso toca revisar ambos lados en cada nodo
 // ============================================================
@@ -114,7 +106,7 @@ void ABBPuntajes::buscarDetective(string nombre) {
              << resultado->puntaje << " movimientos." << endl;
     } else {
         // Si no existe en el árbol
-        cout << "ℹ️  " << nombre << " no tiene puntaje registrado. ¡Es su primera partida!" << endl;
+        cout << "ℹ" << nombre << " no tiene puntaje registrado. ¡Es su primera partida!" << endl;
     }
 }
 
