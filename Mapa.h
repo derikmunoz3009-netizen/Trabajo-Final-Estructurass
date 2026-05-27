@@ -10,7 +10,8 @@ private:
     static const int FILAS    = 11;
     static const int COLUMNAS = 11;
 
-    Ubicacion* celdas[11][11];
+    Ubicacion* inicio;
+    Ubicacion* celdas_temp[11][11];
 
     void construirCeldas();
     void conectarCeldas();
