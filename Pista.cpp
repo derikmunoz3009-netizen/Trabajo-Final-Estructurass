@@ -1,35 +1,31 @@
 #include "Pista.h"
+//C. vacio con la lista de inicialización
+Pista::Pista() : tipo(HUELLA), recogida(false) {} //
 
-Pista::Pista() {
-    this->tipo = 'H';
-    this->posicion = Posicion();
+//constructor con el parametro
+Pista::Pista(TipoPista tipo) : tipo(tipo), recogida(false) {}
+
+TipoPista Pista::getTipo()    const { return tipo; }
+bool      Pista::isRecogida() const { return recogida; }
+
+void Pista::recoger() { recogida = true; }
+
+string Pista::getTipoString() const {
+    switch (tipo) {
+        case HUELLA:         return "Huella";
+        case COARTADA:       return "Coartada";
+        case TESTIMONIO:     return "Testimonio";
+        case PRUEBA_FORENSE: return "Prueba Forense";
+        default:             return "Desconocida";
+    }
 }
 
-Pista::Pista(char tipo, Posicion posicion) {
-    this->tipo = tipo;
-    this->posicion = posicion;
-}
-
-char Pista::getTipo() const {
-    return tipo;
-}
-
-Posicion Pista::getPosicion() const {
-    return posicion;
-}
-
-void Pista::setTipo(char tipo) {
-    this->tipo = tipo;
-}
-
-void Pista::setPosicion(Posicion posicion) {
-    this->posicion = posicion;
-}
-
-std::string Pista::getNombreTipo() const {
-    if (tipo == 'H') return "Huella";
-    if (tipo == 'C') return "Coartada";
-    if (tipo == 'T') return "Testimonio";
-    if (tipo == 'P') return "Prueba forense";
-    return "Pista desconocida";
+string Pista::getSimbolo() const {
+    switch (tipo) {
+        case HUELLA:         return "H";
+        case COARTADA:       return "C";
+        case TESTIMONIO:     return "T";
+        case PRUEBA_FORENSE: return "P";
+        default:             return "?";
+    }
 }

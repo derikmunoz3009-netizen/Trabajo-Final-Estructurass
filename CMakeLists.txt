@@ -1,27 +1,19 @@
-cmake_minimum_required(VERSION 3.10)
-project(Detective_Case)
+cmake_minimum_required(VERSION 4.0)
+project(ProyecFinal)
 
-# Establecer el estándar de C++
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 14)
 
-# Archivos fuente
-set(SOURCES
+add_executable(ProyecFinal
         main.cpp
-        Nodo.cpp
-        Ciudad.cpp
-        Posicion.cpp
         Pista.cpp
-        Testigo.cpp
+        Detective.cpp
         Sospechoso.cpp
-        HashSospechosos.cpp
-        ABBPuntajes.cpp
-        FaseAcusacion.cpp
-        GestorPistasTestigos.cpp
+        Ubicacion.cpp
+        Pila.cpp
+        Cola.cpp
+        TablaHash.cpp
+        Mapa.cpp
+        ABB.cpp
+        Juego.cpp
+        Juego.h
 )
-
-# Crear el ejecutable principal
-add_executable(Detective_Case ${SOURCES})
-
-# Incluir directorios
-target_include_directories(Detective_Case PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
