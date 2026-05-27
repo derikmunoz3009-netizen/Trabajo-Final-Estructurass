@@ -23,9 +23,9 @@ int main() {
     cout << "\nCargando sospechosos..." << endl;
     hash.inicializarSospechosos();
 
-    cout << "=========================================" << endl;
+    cout << "==========================================" << endl;
     cout << "       DETECTIVE CASE" << endl;
-    cout << "=========================================" << endl;
+    cout << "==========================================" << endl;
 
     cout << "\nCual es tu nombre, detective? > ";
     string nombre;
@@ -78,11 +78,17 @@ int main() {
             bool seMovio = ciudad.moverDetective(comando);
 
             if (seMovio) {
-                cout << "\nPuntaje: " << ciudad.getPuntaje() << endl;
+                cout << "\nOK: Te moviste exitosamente." << endl;
+                cout << "Puntaje: " << ciudad.getPuntaje() << endl;
+                cout << "Pistas recolectadas: " << gestor.getPistasRecogidas() << "/10" << endl;
                 ciudad.imprimirTablero();
+
+                // Verificar si estamos en la posicion correcta para una pista
+                // NOTA: En una implementacion completa, generarias pistas
+                // y verificarias si hay pista en la nueva posicion
             }
             else {
-                cout << "\nNo puedes ir por ahi! Hay un borde o un callejon." << endl;
+                cout << "\nERROR: No puedes ir por ahi! Hay un borde o un callejon." << endl;
             }
         }
         // ============================================================
@@ -96,18 +102,21 @@ int main() {
         // VER SOSPECHOSOS (SS) - TABLA HASH O(1)
         // ============================================================
         else if (comando == 'S' && entrada.length() > 1 && toupper(entrada[1]) == 'S') {
-            cout << "\nSospechosos del caso (TABLA HASH):" << endl;
+            cout << "\nSospechosos del caso (TABLA HASH - Busqueda O(1)):" << endl;
+            cout << "==========================================" << endl;
             hash.mostrarTodos();
+            cout << "==========================================" << endl;
         }
         else if (comando == 'S' && entrada.length() == 1) {
             // Mover abajo
             bool seMovio = ciudad.moverDetective('S');
             if (seMovio) {
-                cout << "\nPuntaje: " << ciudad.getPuntaje() << endl;
+                cout << "\nOK: Te moviste exitosamente." << endl;
+                cout << "Puntaje: " << ciudad.getPuntaje() << endl;
                 ciudad.imprimirTablero();
             }
             else {
-                cout << "\nNo puedes ir por ahi!" << endl;
+                cout << "\nERROR: No puedes ir por ahi!" << endl;
             }
         }
         // ============================================================
@@ -121,7 +130,7 @@ int main() {
         // VER RANKING (R) - ARBOL BINARIO
         // ============================================================
         else if (comando == 'R') {
-            cout << "\nRanking historico de detectives (ARBOL BINARIO):" << endl;
+            cout << "\nRanking historico de detectives (ARBOL BINARIO - Recorrido InOrden):" << endl;
             ranking.mostrarRanking();
         }
         // ============================================================
